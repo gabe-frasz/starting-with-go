@@ -3,7 +3,9 @@ module github.com/gabe-frasz/starting-with-go
 go 1.20
 
 require (
+	github.com/google/uuid v1.3.1
 	github.com/mattn/go-sqlite3 v1.14.17
+	github.com/rabbitmq/amqp091-go v1.8.1
 	github.com/stretchr/testify v1.8.4
 )
 

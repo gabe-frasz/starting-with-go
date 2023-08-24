@@ -37,10 +37,19 @@ func publish(channel *amqp.Channel, order *entity.Order) error {
 }
 
 func generateOrder() *entity.Order {
+	price := math.Round((rand.Float64()*100)*100) / 100
+	tax := math.Round((rand.Float64()*10)*100) / 100
+	if price == 0 {
+		price = 13.0
+	}
+	if tax == 0 {
+		tax = 2.0
+	}
+
 	return &entity.Order{
 		ID:    uuid.New().String(),
-		Price: math.Round((rand.Float64()*100)*100) / 100,
-		Tax:   math.Round((rand.Float64()*10)*100) / 100,
+		Price: price,
+		Tax:   tax,
 	}
 }
 
